@@ -7,7 +7,7 @@
 		<form name="upload" action="" method="POST" ENCTYPE="multipart/form-data">
 			<input type="hidden" name="MAX_FILE_SIZE" value="2048000">
 			Choose a file to upload: <input type="file" name="userfile">
-			<input type="submit" name="upload" value="Çàãðóçèòü">
+			<input type="submit" name="upload" value="Upload">
 		</form>
 
 		<?php
