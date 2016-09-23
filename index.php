@@ -1,13 +1,13 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">  
-		<title>Главная</title> 
+		<title>Repository</title> 
 	</head> 
 	<body>
 		<form name="upload" action="" method="POST" ENCTYPE="multipart/form-data">
 			<input type="hidden" name="MAX_FILE_SIZE" value="2048000">
-			Выберите файл для загрузки: <input type="file" name="userfile">
-			<input type="submit" name="upload" value="Загрузить">
+			Choose a file to upload: <input type="file" name="userfile">
+			<input type="submit" name="upload" value="Г‡Г ГЈГ°ГіГ§ГЁГІГј">
 		</form>
 
 		<?php
@@ -17,12 +17,12 @@
 				$uploadfile = "$uploaddir$filename";
 				if($_FILES['userfile']['size'] != 0 and $_FILES['userfile']['size']<=2048000) { 
 					if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) { 
-						echo "Файл загружен. ";
+						echo "File was uploaded.";
 					} else {
-						echo "Файл не загружен, попробуйте еще раз";
+						echo "File wasn't uploaded, try again.";
 					}
 				} else { 
-					echo "Размер файла не должен превышать 2Mб";
+					echo "File size shouldn't be more than 2 Mb.";
 				}
 			}
 		?>
