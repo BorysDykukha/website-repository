@@ -38,25 +38,45 @@
 			$filelist = filtered_scandir($uploaddir);
 			
 			echo 
-				"<table border=1 width=500>
+				"<table border=1 width=600>
 					<tr>
 						<td align='center'>Name of file</td>
 						<td width=80 align='center'>Size</td>
 						<td width=120 align='center'>Upload time</td>
+						<td width=60></td>
+						<td width=80></td>
 					</tr>";
 					
 			foreach($filelist as $file) {
 				$size = round(filesize($uploaddir . $file) / 1024, 1);
 				$chdate = date("d.m.Y H:i", filemtime($uploaddir . $file));
-				echo 
+				echo
 					"<tr>
 						<td>$file</td>
 						<td>$size Kb</td>
 						<td>$chdate</td>
+						<td>
+							<form name='delete' action='' method='POST' ENCTYPE='multipart/form-data'>
+								<input type='hidden' name='filename' value='$file'>
+								<input type='submit' name='delete' value='Delete'>
+							</form>
+						</td>
+						<td>
+							<form name='download' action='download.php' method='POST' ENCTYPE='multipart/form-data'>
+								<input type='hidden' name='filename' value='$file'>
+								<input type='submit' name='download' value='Download'>
+							</form>
+						</td>
 					</tr>";
 			}
 			
 			echo "</table>";
+			
+			if($_POST[delete]) {
+				$filename = $_POST[filename];
+				if (!(@unlink($uploaddir . $filename))) die('Error Delete File.');
+				echo "<meta http-equiv='refresh' content='0; url='index.php'' />";
+			}
 		?>
 	</body>
 </html>
