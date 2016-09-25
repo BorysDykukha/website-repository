@@ -6,14 +6,14 @@
 		<div class='categories'>
 			<img src='/Admin/categories.jpg' width='100%'>
 			<hr>
-			<a href='index.php'>All</a>
+			<a href='index.php'><img src='/Admin/allfiles.jpg' width='100%'></a>
 			<br>
-			<a href='images.php'>Images</a>
+			<a href='images.php'><img src='/Admin/images.jpg' width='100%'></a>
 			<br>
-			<a href='music.php'>Music</a>
+			<a href='music.php'><img src='/Admin/music.jpg' width='100%'></a>
 			<br>
-			<a href='documents.php'>Documents</a>
+			<a href='documents.php'><img src='/Admin/documents.jpg' width='100%'></a>
 			<hr>
-			<a href='upload.php'>Upload file</a>
+			<a href='upload.php'><img src='/Admin/upload.jpg' width='100%'></a>
 		</div>
 		<div class='content'>
