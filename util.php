@@ -8,7 +8,7 @@
 		return array_values($list);
 	}
 	
-	function add_to_table($dir, $flag=0) {
+	function add_to_table($dir, $flag=0, $searchword) {
 		if($flag == 1 or $flag==3) {
 			echo 
 				"<table border=1 width=600>
@@ -21,7 +21,14 @@
 					</tr>";
 		}
 		
-		$list = filtered_scandir($dir);
+		if($searchword != null) {
+			$temp = getcwd();
+			chdir("$dir");
+			$list = glob("*$searchword*");
+			chdir("$temp");
+		} else {
+			$list = filtered_scandir($dir);
+		}
 		foreach($list as $file) {
 			$size = round(filesize($dir . $file) / 1024, 1);
 			$chdate = date("d.m.Y H:i", filemtime($dir . $file));

@@ -7,9 +7,10 @@
 	<?php
 		include "top.php";
 		include "util.php";
+		include "search.php";
 		
 		$imagesdir = 'Uploaded/Images/';
-		add_to_table($imagesdir, 3);
+		add_to_table($imagesdir, 3, $_POST[searchrequest]);
 		
 		if($_POST[delete]) {
 			if (!(@unlink($_POST[folder] . $_POST[filename]))) die('Failed to delete file.');
